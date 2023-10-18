@@ -1,4 +1,5 @@
 import nltk
+import sys
 
 mots_cles_discriminatoires = ["discrimination", "racisme", "sexisme", "homophobie", "xénophobie", "Israel", "Palestine", "USA", "Russie", "Ukraine", "Viol", "Agression Sexuel", "Patriarca", "Immigré"]
 
@@ -16,6 +17,8 @@ def process_file(file_path):
         result = check_discriminatory_keywords(file_contents)
         return result
 
-file_path = 'transcript.txt'
+file_path = sys.argv[1]
+wishlist = input("Enter any word you wish not to see: ")
+mots_cles_discriminatoires.append(wishlist)
 result = process_file(file_path)
 print(result)
